@@ -6,3 +6,6 @@
 
 ## Obtener citas por su fecha 
 - (GET) http://127.20.30.69:5019/citas => Obtiene todos los registros de la tabla cita ordenados por su fecha
+
+## Obtener medico filtrado por una especialidad  
+- (GET) http://127.20.30.69:5019/medicos/1 => Obtiene todos los medicos que se contengan el id de la especialidad enviada al final de la ruta.
