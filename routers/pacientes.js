@@ -20,4 +20,13 @@ storagePacientes.get("/", (req, res) => {
     )
 })
 
+storagePacientes.get("/:id", (req, res) => {
+    con.query(
+        /*sql */`SELECT * FROM cita where cit_datosUsuario=${req.params.id}`,
+        (err,data,fill)=>{
+            res.send(data);
+        }
+    )
+})
+
 export default storagePacientes;

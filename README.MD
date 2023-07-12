@@ -9,3 +9,6 @@
 
 ## Obtener medico filtrado por una especialidad  
 - (GET) http://127.20.30.69:5019/medicos/1 => Obtiene todos los medicos que se contengan el id de la especialidad enviada al final de la ruta.
+
+## Encontrar la próxima cita para un paciente específico  
+- (GET) http://127.20.30.69:5019/pacientes/74 
