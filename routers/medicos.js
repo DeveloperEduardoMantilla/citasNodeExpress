@@ -18,6 +18,18 @@ storageCitas.get("/:especialidad", (req, res) => {
             res.send(data);
         }
     ) 
-})
+}) 
+
+storageCitas.get("/consultorio/", (req, res) => {
+    res.json({
+        message:"Data"
+    })
+    con.query(
+        `select * from medico INNER JOIN consultorio ON med_consultorio = consultorio.cons_codigo`,
+        (err,data,fill)=>{
+            res.send(data);
+        }
+    ) 
+}) 
 
 export default storageCitas;
