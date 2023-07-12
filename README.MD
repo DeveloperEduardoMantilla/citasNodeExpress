@@ -16,3 +16,6 @@
 
 ## Obtener todos los pacientes que tienen citas con un médico específico
 - (GET) http://127.20.30.69:5019/pacientes/medico/200
+
+## Encontrar todas las citas para un día específico
+- (GET) http://127.20.30.69:5019/citas/2023-08-08

@@ -19,5 +19,14 @@ storageCitas.get("/", (req, res) => {
         }
     )
 })
+storageCitas.get("/:dia", (req, res) => {
+    con.query(
+        /*sql */`SELECT * FROM cita where cit_fecha="${req.params.dia}"`,
+        (err,data,fill)=>{
+            res.send(data);
+        }
+    )
+})
+
 
 export default storageCitas;
