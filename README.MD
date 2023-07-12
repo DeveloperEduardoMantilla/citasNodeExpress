@@ -12,3 +12,7 @@
 
 ## Encontrar la próxima cita para un paciente específico  
 - (GET) http://127.20.30.69:5019/pacientes/74 
+
+
+## Obtener todos los pacientes que tienen citas con un médico específico
+- (GET) http://127.20.30.69:5019/pacientes/medico/200
