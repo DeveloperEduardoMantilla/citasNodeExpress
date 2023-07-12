@@ -13,7 +13,7 @@ storageCitas.use((req, res, next) => {
 })
 storageCitas.get("/", (req, res) => {
     con.query(
-        /*sql */`SELECT * FROM cita ORDER BY cit_codigo ASC;`,
+        /*sql */`SELECT * FROM cita ORDER BY cit_fecha ASC;`,
         (err,data,fill)=>{
             res.send(data);
         }
