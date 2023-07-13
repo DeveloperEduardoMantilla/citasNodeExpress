@@ -15,7 +15,10 @@
 
 
 ## Obtener todos los pacientes que tienen citas con un médico específico
-- (GET) http://127.20.30.69:5019/pacientes/medico/200
+- (GET) http://127.20.30.69:5019/pacientes/medico/200 => A traves de este EndPoint se permite obtener todos los pacientes que tiene cita con un medico en especifico.
 
 ## Encontrar todas las citas para un día específico
-- (GET) http://127.20.30.69:5019/citas/2023-08-08
+- (GET) http://127.20.30.69:5019/citas/2023-08-08 => Este EndPoint permite mostrar todas las citas filtradas por un dia en especifico.
+
+## Obtener los médicos y sus consultorios
+- (GET) http://127.20.30.69:5019/medicos/consultorio => Este EndPoint permite mostrar todos los medicos junto a su consultorio.
