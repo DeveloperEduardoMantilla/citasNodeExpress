@@ -22,3 +22,6 @@
 
 ## Obtener los médicos y sus consultorios
 - (GET) http://127.20.30.69:5019/medicos/consultorio => Este EndPoint permite mostrar todos los medicos junto a su consultorio.
+
+## Total de citas que tiene un medico en un dia especifico
+- (GET) http://127.20.30.69:5019/medicos/200/2023-09-10 => Este EndPoint permite contar el número de citas que un médico tiene en un día específico.

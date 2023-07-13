@@ -30,6 +30,17 @@ storageMedico.get("/:especialidad", (req, res) => {
     ) 
 }) 
 
+storageMedico.get("/:medico/:dia", (req, res) => {
+    let data = req.params; 
+    con.query(      
+        `SELECT medico.med_nroMatriculaProfesional as matricula, medico.med_nombrecompleto as medico, cita.cit_fecha as fecha, COUNT(medico.med_nroMatriculaProfesional) as cantidad FROM medico INNER JOIN cita ON cita.cit_medico = medico.med_nroMatriculaProfesional where medico.med_nroMatriculaProfesional=? and cita.cit_fecha=?;`,
+        Object.values(data),
+        (err,data,fill)=>{
+            res.send(data);
+        }
+    ) 
+}) 
+
 
 
 export default storageMedico;
