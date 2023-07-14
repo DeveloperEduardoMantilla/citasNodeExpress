@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import "reflect-metadata";
 import storagePacientes from "./routers/pacientes.js";
 import storageCitas from "./routers/citas.js";
 import storageMedico from "./routers/medicos.js";

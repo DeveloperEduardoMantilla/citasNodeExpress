@@ -1,6 +1,8 @@
+import "reflect-metadata";
 import dotenv from "dotenv";
 import mysql from "mysql2";
 import { Router } from "express";
+import proxyPacientes from "../middleware/proxyPacientes.js";
 
 dotenv.config();
 const storagePacientes = Router();
@@ -11,7 +13,7 @@ storagePacientes.use((req, res, next) => {
     con = mysql.createPool(my_config);
     next();
 })
-storagePacientes.get("/", (req, res) => {
+storagePacientes.get("/", proxyPacientes, (req, res) => {
     con.query(
         /*sql */`select usuario.usu_id as id, usuario.usu_nombre as nombre, usuario.usu_segdo_nombre as segNombre, usuario.usu_primer_apellido_usuar as apellido, usuario.usu_segdo_apellido_usuar as apellido2, usuario.usu_telefono as telefono, usuario.usu_email as email, tipo_documento.tipdoc_abreviatura as tipo, genero.gen_nombre as genero, acudiente.acu_nombreCompleto as acudiente from usuario inner join tipo_documento on usuario.usu_tipodoc=tipo_documento.tipdoc_id INNER JOIN genero on genero.gen_id=usuario.usu_genero INNER JOIN acudiente on acudiente.acu_codigo=usuario.usu_acudiente ORDER by usuario.usu_nombre asc;;`,
         (err,data,fill)=>{
