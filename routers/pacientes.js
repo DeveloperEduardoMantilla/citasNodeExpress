@@ -38,4 +38,14 @@ storagePacientes.get("/medico/:id", (req, res) => {
         }
     )
 })
+
+storagePacientes.get("/consultorias/:idPaciente",(req, res)=>{
+    con.query(
+        /*sql*/ `SELECT consultorio.cons_codigo as consultorioCodigo, consultorio.cons_nombre as consultorioNombre, usuario.usu_id as pacienteCodigo, usuario.usu_nombre as pacienteNombre, usuario.usu_primer_apellido_usuar as pacienteApellido1, cita.cit_fecha as citaFecha FROM usuario INNER JOIN cita ON cita.cit_datosUsuario = usuario.usu_id INNER JOIN medico ON medico.med_nroMatriculaProfesional = cita.cit_medico INNER JOIN consultorio ON consultorio.cons_codigo = medico.med_consultorio WHERE usuario.usu_id = ${req.params.idPaciente};`,
+        (err,data,fill)=>{
+            res.send(data);
+        }
+    )
+})
+
 export default storagePacientes;
