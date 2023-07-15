@@ -48,4 +48,13 @@ storagePacientes.get("/consultorias/:idPaciente",(req, res)=>{
     )
 })
 
+storagePacientes.get("/consultorios/:idPaciente",(req, res)=>{
+    con.query(
+        /*sql*/ `select cita.cit_fecha as fecha, usuario.usu_nombre as paciente, consultorio.cons_nombre as consultorio from cita INNER JOIN medico on cita.cit_medico=medico.med_nroMatriculaProfesional INNER JOIN consultorio on consultorio.cons_codigo=medico.med_consultorio INNER JOIN usuario on usuario.usu_id=cita.cit_datosUsuario where usuario.usu_id=${req.params.idPaciente}`,
+        (err,data,fill)=>{
+            res.send(data);
+        }
+    )
+})
+
 export default storagePacientes;
