@@ -57,4 +57,14 @@ storagePacientes.get("/consultorios/:idPaciente",(req, res)=>{
     )
 })
 
+storagePacientes.get("/citas/:genero/:estado",(req, res)=>{
+    let data = req.params;
+    con.query(
+        /*sql*/ `select cita.cit_fecha as fecha, usuario.usu_nombre as paciente, estado_cita.estcita_nombre as estado, genero.gen_nombre as genero from cita INNER JOIN usuario on usuario.usu_id=cita.cit_datosUsuario INNER JOIN genero on genero.gen_id=usuario.usu_genero INNER JOIN estado_cita on estado_cita.estcita_id=cita.cit_estadoCita where genero.gen_nombre=? and estado_cita.estcita_nombre=? `,
+        Object.values(data),
+        (err,data,fill)=>{
+            res.send(data);
+        }
+    )
+})
 export default storagePacientes;
