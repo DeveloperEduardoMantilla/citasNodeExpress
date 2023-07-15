@@ -41,6 +41,15 @@ storageMedico.get("/:medico/:dia", (req, res) => {
     ) 
 }) 
 
-
+storageMedico.get("/cantidadCitas/:medico/:dia", (req, res) => {
+    let data = req.params; 
+    con.query(      
+        `select cita.cit_fecha as fechaCita, medico.med_nombrecompleto as nombreMedico, COUNT(*) as cantidadCitas from cita INNER join medico on cita.cit_medico=medico.med_nroMatriculaProfesional where cita.cit_medico=? and cita.cit_fecha=? GROUP BY cita.cit_medico;`,
+        Object.values(data),
+        (err,data,fill)=>{
+            res.send(data);
+        }
+    ) 
+}) 
 
 export default storageMedico;

@@ -28,3 +28,6 @@
 
 ## Obtener las consultorías para un paciente específico
 - (GET) http://127.20.30.69:5019/pacientes/consultorias/74 => Se desarrolla EndPoint que permite obtener las consultorías para un paciente específico.
+
+## Contar el número de citas que un médico tiene en un día específico
+- (GET) http://127.20.30.69:5019/pacientes/consultorias/74 => Se desarrolla EndPoint que permite contar el número de citas que un médico tiene en un día específico.
