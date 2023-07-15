@@ -37,3 +37,6 @@
 
 ## Obtener todas las citas realizadas por los pacientes de un genero si su estado de la cita fue aprobada, rechazada, espera
 - (GET) http://127.23.12.55:5010/pacientes/citas/Masculino/aprobada => Se desarrolla EndPoint que permite obtener todas las citas realizadas por los pacientes de un genero si su estado de la cita fue aprobada, rechazada, Espera.
+
+## Mostrar todas las citas que fueron rechazadas y en un mes específico.
+- (GET) http://127.23.12.55:5010/citas/rechazadas/08 => Se desarrolla EndPoint que permite mostrar todas las citas que fueron rechazadas en un mes específico, muestra la fecha de la cita, el nombre del usuario y el médico.

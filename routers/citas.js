@@ -27,6 +27,20 @@ storageCitas.get("/:dia", (req, res) => {
         }
     )
 })
+storageCitas.get("/rechazadas/:mes", (req, res) => {
+    con.query(
+        /*sql */`SELECT cita.cit_fecha AS fecha, usuario.usu_nombre AS usuario, medico.med_nombrecompleto as medico, estado_cita.estcita_nombre as estado
+                    FROM cita
+                    INNER JOIN estado_cita ON estado_cita.estcita_id = cita.cit_estadoCita
+                    INNER JOIN usuario ON usuario.usu_id = cita.cit_datosUsuario
+                    INNER JOIN medico ON medico.med_nroMatriculaProfesional = cita.cit_medico
+                    WHERE cita.cit_estadoCita = 2
+                    AND DATE_FORMAT(cita.cit_fecha, '%m') = ${req.params.mes}`,
+        (err,data,fill)=>{
+            res.send(data);
+        }
+    )
+})
 
 
 export default storageCitas;
